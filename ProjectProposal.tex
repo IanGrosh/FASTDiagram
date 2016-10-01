@@ -1,0 +1,99 @@
+\documentclass[Letter,11pt]{article}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[margin=1in]{geometry}
+\graphicspath{{Pictures/}}
+\usepackage{datetime}
+\usepackage{fast-diagram}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric,arrows,automata,calc,shapes, positioning}
+
+\begin{document}
+	%make the tile
+	\input{title.tex}
+	%make the abstract
+	\begin{abstract}
+		Design Team 3 has been chartered to create a safety equipment(ie. fire extinguishers, A.E.D.s, first aid kits, etc.) tracking system for ArcelorMittal USA to use in there offices and production environments. This system will allow for: administrators to create locations where safety equipment is based on bar codes, and define question to be answered for each location/peace of safety equipment. Then for the administrators to set inspections schedules for each location and assassin the responsibility for those inspections. This system will then allow an operator to log into a android tablet application witch will synchronize with the database of locations and safety equipment allowing the operator to use this database and the camera on the device associate the codes with a set of inspection questions then recode the operators response with out an Internet connection. Once the operator has uploaded there responses to the question the database will keep track of the locations/safety equipment witch is in compliance and witch is not, it will also generate reports for the administrators witch show witch locations/safety equipment needs attention and witch operators are up to date on there inspections and witch need to conduct safety inspections then email those operators with a list of locations/safety equipment they need to inspect.
+	\end{abstract}
+
+
+\section{Scope}\label{scope}
+
+	%\begin{figure}
+	%	\centering
+	%	\input{SysConect.tex}
+	%	\caption{\label{sys} System interconnection}
+	%\end{figure}
+	In order to guide the teams design project and ensure the project has limits of what the team will build, the system has been broken into a number of sub system 
+	%shown in Figure~\ref{sys} 
+	and a project scope has been defined for each:
+		\begin{itemize}
+			\item Mobile Application
+			\begin{itemize}
+				\item Off-line Mode
+				\item Bar code Scanning
+				\item Bar code based questions
+			\end{itemize}
+			\item Web Application
+			\begin{itemize}
+				\item Add locations to the database
+				\item Add safety equipment types to the database
+				\item Create questions
+				\item Associate Bar codes with:
+				\subitem Locations
+				\subitem Safety equipment
+				\item Associate Locations with:
+				\subitem Safety Equipment
+				\subitem Questions
+				\item Associate safety equipment with
+				\subitem Locations
+				\subitem Questions
+				\item Add Questions to reports
+				\item Create timetable for reports
+				\item Add recipient to reports
+			\end{itemize}
+			\item Sever side Database and middle-ware
+			\begin{itemize}
+				\item Host:
+				\subitem Web application
+				\subitem Database API for mobile app
+				\item Generate and send out reports
+			\end{itemize}
+		\end{itemize}
+\section{Function Definition} 
+		In order to justify the existence of items in Part~\ref{scope} the team created a number of function definitions. These definitions were then consolidated into the FAST diagram in Figure~\ref{fast1} along with a more detailed description.
+				\begin{figure}[h]
+					\centering
+					\input{FastDG.tex}
+					\caption{\label{fast1} FAST Digram}
+				\end{figure}
+		The Primary function for the project is \textbf{Ensure Compliance} This is the main goal of the system we have been commissioned to build. From our primary function are derived two secondary functions each having there own tertiary functions:
+		\begin{itemize}
+			\item \textbf{Verify Standards}:\\
+			In order to Ensure Compliance with all pertinent safety regulations the system must be able to check the and verify that all the stranded are being upheld in the various locations and across the numerous safety devices.
+			\item \textbf{Keep Records}:\\
+			In order to ensure that all of the safety laws and regulations are fallowed we mus keep records of all the locations witch must have safety equipment present in a building, what safety equipment must be present, and how to verify that it is in working condition.  
+			\item \textbf{Recognize Failure}:\\
+			In order to ensure compliance we need to recognize when a pecs of safety equipment is not in compliance. 
+		\end{itemize}
+		From the secondary function Keep Records we have derived: 
+		\begin{itemize}
+			\item \textbf{Generate Reports}:\\
+			In order to keep records and ensure that every location and item is in compliance the system must be able to generate reports on any set of data on witch record are kept.
+			\item \textbf{Collect Data}:\\
+			In order the keep records we must collect data on the safety equipment and locations in witch they are stored.
+		\end{itemize}
+		From the secondary function Verify Standers we have derived:
+		\begin{itemize}
+			\item \textbf{Set Requirements}:\\
+			In order to Verify Standers the system must be able to set complacence requirements for each location and item witch is being tracked by the system.
+			\item \textbf{Set Responsibility}:\\
+			In order to Verify Standers the standers are being upheld a person must be assigned Responsibility for a number of locations and items within the system. Once this Responsibility is set the owner can be held accountably for there set of locations and items. 
+			\item \textbf{Schedule Checklists}:\\
+			so that Standers are verified  checklists should be generated to show those who are responsible for items witch items need to be checked to ensure compliance.
+		\end{itemize}
+		
+
+
+\end{document}
